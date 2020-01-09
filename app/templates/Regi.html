@@ -1,0 +1,197 @@
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<html>
+<head>
+{% load static %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
+<link rel="stylesheet" href="Regi.css">
+<script src="Regi.js"></script>
+  <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+    
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+	
+</head>
+
+<body>
+ <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html"><i class="fa-football-o" aria-hidden="true"></i><span>Desporto</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" style="background-color:#5ebe58;width:100%;" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+			  <li class="nav-item"><a href="games.html" class="nav-link">Games</a></li>
+			  <li class="nav-item"><a href="" class="nav-link">Institute</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	          <li class="nav-item cta"><a href="#" class="nav-link"> Registration</a></li>
+
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
+<div id="contentContainer" style="margin-top:10%;" class="container">
+  <div class="row">
+    <div id="realContent" class="col-xs-12">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12 col-sm-offset-0">
+          <h1>Sign Up</h1>
+        </div>
+      </div>
+      <div class="row">
+        <section class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12 col-sm-offset-0">
+          <div class="well well-lg">
+            <div class="row">
+              <div class="col-sm-6 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <h3>Welcome</h3></div>
+                </div>
+                <div class="row">
+                  <!-- Instructions -->
+                  <div class="col-xs-12">
+                    <p class="lead">Register now for <span class="text-success">FREE</span></p>
+                    <ul class="list-unstyled" style="line-height: 3; font-size: 1.4em; font-weight: 500;">
+                      <li><span class="fa fa-check text-success"></span> Participate in this contest</li>
+                      <li><span class="fa fa-check text-success"></span> Leaderboard feature to see who is on top</li>
+                      <li><span class="fa fa-check text-success"></span> Solve the problems faster than others to win</li>
+                      <li><span class="fa fa-check text-success"></span> Choose to code in your favorite language</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Registration Form -->
+              <div class="col-sm-6 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <form id="signupForm" method="post" accept-charset="UTF-8" action="{% url 'signup_action' %}" validate>
+                      {% csrf_token %}
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user-secret icon-2x"></i></i></span>
+                        <input id="name" class="form-control input-lg" placeholder="Full Name" maxlength="100" type="text" name="name">
+                      </div>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="icon-user icon-2x"></i></span>
+                        <input id="handle" class="form-control input-lg" placeholder="Username" maxlength="100" type="text" name="handle">
+                      </div>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="icon-envelope icon-2x"></i></span>
+                        <input id="email" class="form-control input-lg" placeholder="Email" maxlength="100" type="email" name="email" validate>
+                      </div>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="icon-asterisk icon-2x"></i></span>
+                        <input id="password" class="form-control input-lg" placeholder="Password" maxlength="60" type="password" name="password">
+                      </div>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="icon-asterisk icon-2x"></i></span>
+                        <input id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" maxlength="60" type="password" name="password_confirmation">
+                      </div>
+                      <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey="6LdJRxETAAAAABZT0MUNO1r5at_-JuSGeAPTqIM6"></div>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" id="btn-signup" class="btn btn-block btn-primary btn-lg">Sign Up</button>
+                      </div>
+                    </form>
+                    <div class="form-group">
+                      <div class="topCushion">Already a member? <a href="#">Login</a></div>
+                    </div>
+                  </div>
+                  <!-- /.col-xs-12 -->
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- /.col-sm-6 col-xs-12 -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.well well-lg -->
+        </section>
+        <!-- /.col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12 col-sm-offset-0 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /#realContent -->
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /#contentContainer -->
+</body>
+<script>
+    $('form').validate({
+        rules: {
+            name: {
+                minlength: 3,
+                maxlength: 50,
+                required: true,
+            },
+            handle: {
+                minlength: 6,
+                maxlength: 15,
+                required: true,
+                alphanumeric: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true,
+                minlength: 6,
+                maxlength: 15
+            },
+            password_confirmation: {
+                required: true,
+                equalTo: '#password'
+            }
+        },
+        highlight: function(element) {
+            $(element).closest('.input-group').addClass('has-error');
+        },
+        unhighlight: function(element) {
+            $(element).closest('.input-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function(error, element) {
+            if(element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+</script>
+</html>
