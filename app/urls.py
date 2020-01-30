@@ -21,4 +21,8 @@ urlpatterns = [
     path('',views.index,name="index"),
     path('signup/',views.signup,name="signup"),
     path('signup-action/',views.signup_action,name="signup_action"),
+    path('search/',views.search,name='search'),
+    path('institute/<int:id>/',views.public_profile,name='public_profile'),
+    path('search-result/',views.search_result,name='search_result'),
+    path('institute/',views.institute,name='institute'),
 ]

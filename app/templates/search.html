@@ -1,0 +1,16 @@
+
+{% load static %}
+{% include 'navigation.html' %}
+    <form action="{% url 'search_result' %}">
+	 <div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/bg_1.jpg' %});padding:15%;" data-stellar-background-ratio="0.5">         
+        <center><h1 style="background-color:black;color:white;width:4em">Institutes</h1></center>
+        <select name="city" class="form-control" style="margin-top:.25em;">
+         <option>Select</option>
+        <option>Bhubaneswar</option>
+        <option>Cuttack</option>
+
+    </select>
+        <input type="text" name="institute" style="margin-top:.25em;" placeholder="Search for Institutes" class="form-control">
+        <button type="submit" class="btn btn-primary" style="margin-top:.25em;width:100%;"> Search  </button>
+    </div>
+    </form>

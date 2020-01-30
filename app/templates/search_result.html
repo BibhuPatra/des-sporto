@@ -1,0 +1,54 @@
+{% load static %}
+
+{% include 'navigation.html' %}
+
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/bg_1.jpg' %});padding:15%;" data-stellar-background-ratio="0.5">         
+    <center><h1 style="background-color:black;color:white;width:4em">Institutes</h1></center>
+    <select name="city" class="form-control" style="margin-top:.25em;">
+        <option>Select</option>
+        <option>Bhubaneswar</option>
+        <option>Cuttack</option>
+    </select>
+    <input type="text" name="institute" style="margin-top:.25em;" placeholder="Search for Institutes" class="form-control">
+    <button class="btn btn-primary" style="margin-top:.25em;width:100%;"> Search  </button>
+
+    <div class="container" style="margin-top:1.25em;">
+        
+
+        {% for institute in institutes %}
+        <div class="card" style="margin-top:.75em;">
+            <div class="card-header">
+                {{institute.category}}
+            </div>
+            <div class="card-body" >
+                <div class="row">
+                <img style="max-width:30%;margin-left:.35em;" class="img-fluid" src="https://miro.medium.com/max/1024/1*OGFjrLZPzHIV6uYDmsKzsA.png">
+                    <div style="margin-left:.75em;">
+                        <ul style="list-style-type: none;"> 
+                            <li>
+                                <span style="color:black;font-size:.75em;"><b>Address</b> </span> : <span style="font-size:.75em;">{{institute.location}}</span>
+                            </li>    
+                            <li>
+                                <span style="color:black;font-size:.75em;"><b>Age Group</b> </span> : <span style="font-size:.75em;">{{institute.age_group}}</span>
+                            </li>
+                            <li>
+                                <span style="color:black;font-size:.75em;"><b>Contact</b> </span> : <span style="font-size:.75em;">{{institute.contact}}</span>
+                            </li>
+                            <li>
+                                <span style="color:black;font-size:.75em;"><b>Sports Played</b> </span> : <span style="font-size:.75em;">Football, Cricket.</span>
+                            </li>
+                            <li>
+                                <span style="color:black;font-size:.75em;"><b>No. of Coaches</b> </span> : <span style="font-size:.75em;">{{institute.no_coaches}}</span>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <h5 class="card-title">{{institute.institute_name}}</h5>
+                <a href="{% url 'public_profile' id=institute.institute_id %}" class="btn btn-primary" style="float:right;">View Profile</a>
+            </div>
+        </div>
+        {% endfor %} 
+    </div>
+</div>
+
